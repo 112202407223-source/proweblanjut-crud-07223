@@ -2,7 +2,6 @@
 // index.php
 require_once 'koneksi.php';
 
-// Query tanpa pencarian
 $stmt = $db->query("SELECT * FROM barang ORDER BY id DESC");
 $barang = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
