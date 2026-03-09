@@ -2,17 +2,8 @@
 // index.php
 require_once 'koneksi.php';
 
-// Ambil dta
-$search = isset($_GET['search']) ? $_GET['search'] : '';
-
-if ($search) {
-    $stmt = $db->prepare("SELECT * FROM barang WHERE nama_barang LIKE ? OR kategori LIKE ? ORDER BY id DESC");
-    $searchTerm = "%$search%";
-    $stmt->execute([$searchTerm, $searchTerm]);
-} else {
-    $stmt = $db->query("SELECT * FROM barang ORDER BY id DESC");
-}
-
+// Query tanpa pencarian
+$stmt = $db->query("SELECT * FROM barang ORDER BY id DESC");
 $barang = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
@@ -28,14 +19,6 @@ $barang = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         <div style="margin-bottom: 20px;">
             <a href="tambah.php" class="btn btn-add">Tambah Barang Baru</a>
-            
-            <form method="GET" style="display: inline-block; margin-left: 20px;">
-                <input type="text" name="search" placeholder="Cari barang..." value="<?php echo $search; ?>">
-                <button type="submit" class="btn btn-add" style="background: #007bff;">Cari</button>
-                <?php if($search): ?>
-                    <a href="index.php" class="btn btn-back">Reset</a>
-                <?php endif; ?>
-            </form>
         </div>
         
         <?php if(isset($_GET['message'])): ?>
