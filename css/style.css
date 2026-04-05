@@ -1,4 +1,4 @@
- * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #764ba2;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     padding: 20px;
 }
@@ -49,7 +49,125 @@ h2 {
     font-weight: 500;
 }
 
-/* Tombol-tombol */
+/* ========== USER INFO STYLES ========== */
+.user-info {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.user-greeting {
+    font-size: 16px;
+    color: #2c3e50;
+}
+
+.user-greeting strong {
+    color: #667eea;
+}
+
+.logout-btn {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    color: white;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.logout-small {
+    background: #dc3545;
+    color: white;
+    padding: 5px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.logout-small:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+}
+
+/* ========== LOGIN PAGE STYLES ========== */
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    width: 350px;
+    animation: slideIn 0.5s ease-out;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+}
+
+.login-container .form-group {
+    margin-bottom: 20px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.login-info {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #6c757d;
+}
+
+/* ========== BUTTON STYLES ========== */
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -111,7 +229,7 @@ h2 {
     background: linear-gradient(135deg, #5a6268, #4e555b);
 }
 
-/* Tabel */
+/* ========== TABLE STYLES ========== */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -122,7 +240,7 @@ table {
 }
 
 table th {
-    background: linear-gradient(135deg, #633ec9, #764ba2);
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     padding: 15px 12px;
     text-align: left;
@@ -153,7 +271,7 @@ table tr:last-child td {
     border-bottom: none;
 }
 
-/* Form */
+/* ========== FORM STYLES ========== */
 .form-group {
     margin-bottom: 20px;
     animation: fadeIn 0.5s ease-out;
@@ -210,7 +328,7 @@ table tr:last-child td {
     resize: vertical;
 }
 
-/* Alert */
+/* ========== ALERT STYLES ========== */
 .alert {
     padding: 15px 20px;
     margin-bottom: 25px;
@@ -235,26 +353,41 @@ table tr:last-child td {
 .alert-success {
     background: linear-gradient(135deg, #d4edda, #c3e6cb);
     color: #1f8737;
+    border-left: 4px solid #28a745;
 }
 
 .alert-error {
     background: linear-gradient(135deg, #f8d7da, #f5c6cb);
     color: #93232e;
+    border-left: 4px solid #dc3545;
 }
 
-/* Action buttons */
+/* ========== ACTION BUTTONS ========== */
 .action-buttons form {
     display: inline;
 }
 
-
+/* ========== RESPONSIVE STYLES ========== */
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
     .container {
         padding: 15px;
     }
     
+    .login-container {
+        width: 90%;
+        padding: 25px;
+    }
+    
     h1 {
         font-size: 24px;
+    }
+    
+    h2 {
+        font-size: 20px;
     }
     
     table {
@@ -263,21 +396,18 @@ table tr:last-child td {
         white-space: nowrap;
     }
     
-    .search-box input[type="text"] {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    
-    .search-box button {
-        width: 100%;
-        margin-left: 0;
-        margin-bottom: 10px;
+    .user-info {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
     }
     
     .btn {
         display: inline-block;
         width: auto;
         margin: 2px;
+        padding: 8px 12px;
+        font-size: 12px;
     }
     
     .form-group input,
@@ -286,22 +416,7 @@ table tr:last-child td {
     }
 }
 
-/* Loading */
-.loading {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(255,255,255,.3);
-    border-radius: 50%;
-    border-top-color: white;
-    animation: spin 1s ease-in-out infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Card Style untuk Form */
+/* ========== EXTRA UTILITIES ========== */
 .form-card {
     background: linear-gradient(135deg, #f8f9fa, #ffffff);
     padding: 25px;
@@ -309,7 +424,6 @@ table tr:last-child td {
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
-/* Badge untuk Status */
 .badge {
     display: inline-block;
     padding: 5px 10px;
@@ -334,7 +448,20 @@ table tr:last-child td {
     color: white;
 }
 
-/* Tooltip */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 [data-tooltip] {
     position: relative;
     cursor: help;
@@ -363,9 +490,20 @@ table tr:last-child td {
     bottom: 120%;
 }
 
-/* Glassmorphism Effect */
 .glass-card {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
 }
