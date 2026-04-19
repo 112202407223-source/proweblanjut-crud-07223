@@ -72,8 +72,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!in_array($file_ext, $allowed)) {
             $errors[] = "Format gambar harus JPG, JPEG, atau PNG.";
         }
-        if ($file_size > 2 * 1024 * 1024) {
-            $errors[] = "Ukuran gambar maksimal 2MB.";
+        if ($file_size > 1 * 1024 * 1024) {
+            $errors[] = "Ukuran gambar maksimal 1MB.";
         }
         // Validasi MIME type dengan getimagesize
         if (empty($errors)) {
